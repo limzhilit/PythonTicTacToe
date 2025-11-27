@@ -1,14 +1,37 @@
 from FunctionToDisplayBoard import print_board
 from checkWin import *
+from smartComputer import *
+import random
+from datetime import datetime
+
 # play game feature to so user can choose boxes, mark boxes and
 # alternate between player moves
+
+# Get current date and time as an integer seed
+now = datetime.now()
+seed = int(now.strftime("%Y%m%d%H%M%S"))
+
+# Seed the random generator
+random.seed(seed)
 
 # function to switch player
 def switch_player(current):
   return "o" if current == "x" else "x"
 
 # core method to play a turn
-def play_turn(board, current_player):
+def play_turn(board, current_player, player):
+  match player:
+    case 1:
+      human(board, current_player)
+    case 2:
+      smart_move(board, current_player)
+      #comp random
+    case 3:
+      smart_move(board, current_player)
+  return switch_player(current_player)
+
+# human player
+def human(board, current_player):
   while True:
   # ask the current player for a position 1–9
     try:
@@ -23,18 +46,21 @@ def play_turn(board, current_player):
     except ValueError:
       print("Invalid input. Please enter a number from 1 to 9.")
   board[choice] = current_player
-  return switch_player(current_player)
-
 
 # game loop
-def play_game(board):
+def play_game(board, mode):
   current_player = "x"
+  value = random.randint(0, 1)
+  if value == 0:
+    player = mode
+  else:
+    player = 1
   for _ in range(9):  # max moves
-    current_player = play_turn(board, current_player)
+    player = 1 if player == mode else mode
+    current_player = play_turn(board, current_player, player)
     print_board(board)
     if check_winner(board):
-      print_victory()
+      print_victory(player)
       return
   print_tie()
 
-  #push
