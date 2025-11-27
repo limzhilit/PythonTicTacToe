@@ -1,0 +1,194 @@
+Index: TicTacToe.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>board = [[0 for _ in range(3)] for _ in range(3)]\n\n\nfor i, row in enumerate(board):\n    print(\" | \".join(map(str, row)))\n    if i < len(board) - 1:  # print horizontal line between rows\n        print(\"---+---+---\")
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/TicTacToe.py b/TicTacToe.py
+--- a/TicTacToe.py	(revision 9bb8ed8758e01679cad18dcb9be0e98c0220bd36)
++++ b/TicTacToe.py	(date 1764166141780)
+@@ -1,7 +1,7 @@
+-board = [[0 for _ in range(3)] for _ in range(3)]
++from checkWin import *
++from PlayGame import *
+ 
++board = [" " for _ in range(9)]
+ 
+-for i, row in enumerate(board):
+-    print(" | ".join(map(str, row)))
+-    if i < len(board) - 1:  # print horizontal line between rows
+-        print("---+---+---")
+\ No newline at end of file
++while (True):
++  play_game()
+Index: checkWin.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>SIZE = 3\n\ndef print_victory():\n    print(\"You won, game is over\")\n\ndef print_defeat():\n    print(\"You lost, game is over\")\n\ndef check_winner(board, data):\n    # checking rows\n    for row in range(SIZE):\n        if board[row][0] == board[row][1] == board[row][2]:\n            if data % 2 == 0:\n                print_victory()\n            else:\n                print_defeat()\n            return 1\n\n    # checking columns\n    for col in range(SIZE):\n        if board[0][col] == board[1][col] == board[2][col]:\n            if data % 2 == 0:\n                print_victory()\n            else:\n                print_defeat()\n            return 1\n\n    # checking main diagonal\n    if board[0][0] == board[1][1] == board[2][2]:\n        if data % 2 == 0:\n            print_victory()\n        else:\n            print_defeat()\n        return 1\n\n    # checking anti-diagonal\n    if board[2][0] == board[1][1] == board[0][2]:\n        if data % 2 == 0:\n            print_victory()\n        else:\n            print_defeat()\n        return 1\n\n    return 0
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/checkWin.py b/checkWin.py
+--- a/checkWin.py	(revision 9bb8ed8758e01679cad18dcb9be0e98c0220bd36)
++++ b/checkWin.py	(date 1764166141780)
+@@ -1,44 +1,47 @@
+ SIZE = 3
+ 
++
+ def print_victory():
+-    print("You won, game is over")
++  print("You won, game is over")
+ 
++
+ def print_defeat():
+-    print("You lost, game is over")
++  print("You lost, game is over")
+ 
++
+ def check_winner(board, data):
+-    # checking rows
+-    for row in range(SIZE):
+-        if board[row][0] == board[row][1] == board[row][2]:
+-            if data % 2 == 0:
+-                print_victory()
+-            else:
+-                print_defeat()
+-            return 1
++  # checking rows
++  for row in range(SIZE):
++    if board[row][0] == board[row][1] == board[row][2]:
++      if data % 2 == 0:
++        print_victory()
++      else:
++        print_defeat()
++      return 1
+ 
+-    # checking columns
+-    for col in range(SIZE):
+-        if board[0][col] == board[1][col] == board[2][col]:
+-            if data % 2 == 0:
+-                print_victory()
+-            else:
+-                print_defeat()
+-            return 1
++  # checking columns
++  for col in range(SIZE):
++    if board[0][col] == board[1][col] == board[2][col]:
++      if data % 2 == 0:
++        print_victory()
++      else:
++        print_defeat()
++      return 1
+ 
+-    # checking main diagonal
+-    if board[0][0] == board[1][1] == board[2][2]:
+-        if data % 2 == 0:
+-            print_victory()
+-        else:
+-            print_defeat()
+-        return 1
++  # checking main diagonal
++  if board[0][0] == board[1][1] == board[2][2]:
++    if data % 2 == 0:
++      print_victory()
++    else:
++      print_defeat()
++    return 1
+ 
+-    # checking anti-diagonal
+-    if board[2][0] == board[1][1] == board[0][2]:
+-        if data % 2 == 0:
+-            print_victory()
+-        else:
+-            print_defeat()
+-        return 1
++  # checking anti-diagonal
++  if board[2][0] == board[1][1] == board[0][2]:
++    if data % 2 == 0:
++      print_victory()
++    else:
++      print_defeat()
++    return 1
+ 
+-    return 0
+\ No newline at end of file
++  return 0
+Index: PlayGame.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># play game feature to so user can choose boxes, mark boxes and\n# alternate between player moves\n\n# representing board\nboard = [\" \" for _ in range(9)]\n\n# function to display board\ndef print_board(board):\n    print(board[0] + \"|\" + board[1] + \"|\" + board[2])\n    print(\"-+-+-\")\n    print(board[3] + \"|\" + board[4] + \"|\" + board[5])\n    print(\"-+-+-\")\n    print(board[6] + \"|\" + board[7] + \"|\" + board[8])\n\n# function to switch player\ndef switch_player(current):\n    return \"O\" if current == \"X\" else \"X\"\n\n# core method to play a turn\ndef play_turn(board, current_player):\n    # ask the current player for a position 1–9\n    choice = int(input(f\"Player {current_player}, choose a box (1-9): \")) - 1\n\n    # make sure it’s empty\n    if board[choice] == \" \":\n        board[choice] = current_player\n    else:\n        print(\"That spot is taken! Try again.\")\n        return current_player  # same player tries again\n\n    return switch_player(current_player)\n\n# game loop\ndef play_game():\n    board = [\" \" for _ in range(9)]\n    current_player = \"X\"\n\n    for _ in range(9):  # max moves\n        print_board(board)\n        current_player = play_turn(board, current_player)\n\n    print_board(board)\n    print(\"Game over!\")
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/PlayGame.py b/PlayGame.py
+--- a/PlayGame.py	(revision 9bb8ed8758e01679cad18dcb9be0e98c0220bd36)
++++ b/PlayGame.py	(date 1764166141780)
+@@ -4,40 +4,44 @@
+ # representing board
+ board = [" " for _ in range(9)]
+ 
++
+ # function to display board
+ def print_board(board):
+-    print(board[0] + "|" + board[1] + "|" + board[2])
+-    print("-+-+-")
+-    print(board[3] + "|" + board[4] + "|" + board[5])
+-    print("-+-+-")
+-    print(board[6] + "|" + board[7] + "|" + board[8])
++  print(board[0] + "|" + board[1] + "|" + board[2])
++  print("-+-+-")
++  print(board[3] + "|" + board[4] + "|" + board[5])
++  print("-+-+-")
++  print(board[6] + "|" + board[7] + "|" + board[8])
+ 
++
+ # function to switch player
+ def switch_player(current):
+-    return "O" if current == "X" else "X"
++  return "O" if current == "X" else "X"
+ 
++
+ # core method to play a turn
+ def play_turn(board, current_player):
+-    # ask the current player for a position 1–9
+-    choice = int(input(f"Player {current_player}, choose a box (1-9): ")) - 1
++  # ask the current player for a position 1–9
++  choice = int(input(f"Player {current_player}, choose a box (1-9): ")) - 1
+ 
+-    # make sure it’s empty
+-    if board[choice] == " ":
+-        board[choice] = current_player
+-    else:
+-        print("That spot is taken! Try again.")
+-        return current_player  # same player tries again
++  # make sure it’s empty
++  if board[choice] == " ":
++    board[choice] = current_player
++  else:
++    print("That spot is taken! Try again.")
++    return current_player  # same player tries again
+ 
+-    return switch_player(current_player)
++  return switch_player(current_player)
+ 
++
+ # game loop
+ def play_game():
+-    board = [" " for _ in range(9)]
+-    current_player = "X"
++  board = [" " for _ in range(9)]
++  current_player = "X"
+ 
+-    for _ in range(9):  # max moves
+-        print_board(board)
+-        current_player = play_turn(board, current_player)
++  for _ in range(9):  # max moves
++    print_board(board)
++    current_player = play_turn(board, current_player)
+ 
+-    print_board(board)
+-    print("Game over!")
+\ No newline at end of file
++  print_board(board)
++  print("Game over!")
