@@ -11,13 +11,18 @@ def switch_player(current):
 def play_turn(board, current_player):
   while True:
   # ask the current player for a position 1–9
-    choice = int(input(f"Player {current_player}, choose a box (1-9): ")) - 1
-  # make sure it’s empty
-    if board[choice] == " ":
-      board[choice] = current_player
-      break
-    else:
-      print("That spot is taken! Try again.")
+    try:
+      choice = int(input(f"Player {current_player}, choose a box (1-9): ")) - 1
+      if choice < 0 or choice > 8:
+        print("Invalid choice. Please enter a number from 1 to 9.")
+        continue
+      if board[choice] != " ":
+        print("That box is already taken. Choose another one.")
+        continue
+      break  # input is valid
+    except ValueError:
+      print("Invalid input. Please enter a number from 1 to 9.")
+  board[choice] = current_player
   return switch_player(current_player)
 
 
@@ -31,3 +36,5 @@ def play_game(board):
       print_victory()
       return
   print_tie()
+
+  #push
