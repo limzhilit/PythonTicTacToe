@@ -4,13 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8c3dd792-57fc-46a4-8f16-f37cdcf3c726" name="Changes" comment="init files">
-      <change afterPath="$PROJECT_DIR$/smartComputer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="8c3dd792-57fc-46a4-8f16-f37cdcf3c726" name="Changes" comment="Added numbers to the board to make choosing a position easier. Changed the color of these numbers to differentiate them from the x and o's.">
+      <change afterPath="$PROJECT_DIR$/ComputerRandom.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_26_11_2025,_2_09 pm_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_26_11_2025__2_09pm__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_11_2025,_2_10 pm_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_11_2025__2_10pm__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PlayGame.py" beforeDir="false" afterPath="$PROJECT_DIR$/PlayGame.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TicTacToe.py" beforeDir="false" afterPath="$PROJECT_DIR$/TicTacToe.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/checkWin.py" beforeDir="false" afterPath="$PROJECT_DIR$/checkWin.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,17 +39,17 @@
     &quot;assignee&quot;: &quot;limzhilit&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/limzhilit/PythonTicTacToe.git&quot;,
-    &quot;accountId&quot;: &quot;2698ab3e-1695-4eb7-bcda-a9f75b9fb031&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/limzhilit/PythonTicTacToe.git",
+    "accountId": "8dd4c0c2-3cc2-4ed9-8747-c1d71083227f"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
   <component name="ProjectId" id="35Q7gkhklhHO8BpTdP1kjfNJXVy" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+  <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -57,13 +58,16 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Python.ComputerRandom.executor": "Run",
+    "Python.FunctionToDisplayBoard.executor": "Run",
     "Python.PlayGame.executor": "Run",
     "Python.TicTacToe.executor": "Run",
     "Python.checkWin.executor": "Run",
+    "Python.random.executor": "Run",
     "Python.smartComputer.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "smartComputer",
+    "git-widget-placeholder": "feature__random",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -162,7 +166,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764239521657</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Added numbers to the board to make choosing a position easier. Changed the color of these numbers to differentiate them from the x and o's.">
+      <option name="closed" value="true" />
+      <created>1764817725221</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1764817725221</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -200,7 +212,8 @@
     <MESSAGE value="check input" />
     <MESSAGE value="push" />
     <MESSAGE value="init files" />
-    <option name="LAST_COMMIT_MESSAGE" value="init files" />
+    <MESSAGE value="Added numbers to the board to make choosing a position easier. Changed the color of these numbers to differentiate them from the x and o's." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added numbers to the board to make choosing a position easier. Changed the color of these numbers to differentiate them from the x and o's." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/TicTacToe$TicTacToe.coverage" NAME="TicTacToe Coverage Results" MODIFIED="1764252312937" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

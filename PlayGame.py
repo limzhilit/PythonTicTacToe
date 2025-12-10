@@ -1,8 +1,10 @@
 from FunctionToDisplayBoard import print_board
 from checkWin import *
 from smartComputer import *
+import ComputerRandom
 import random
 from datetime import datetime
+from ComputerRandom import *
 
 # play game feature to so user can choose boxes, mark boxes and
 # alternate between player moves
@@ -18,14 +20,15 @@ random.seed(seed)
 def switch_player(current):
   return "o" if current == "x" else "x"
 
+available = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+
 # core method to play a turn
 def play_turn(board, current_player, player):
   match player:
     case 1:
       human(board, current_player)
     case 2:
-      smart_move(board, current_player)
-      #comp random
+      pcMove(board, current_player, available)
     case 3:
       smart_move(board, current_player)
   return switch_player(current_player)
@@ -46,6 +49,7 @@ def human(board, current_player):
     except ValueError:
       print("Invalid input. Please enter a number from 1 to 9.")
   board[choice] = current_player
+  available.remove(choice)
 
 # game loop
 def play_game(board, mode):
