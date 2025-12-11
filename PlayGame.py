@@ -60,11 +60,18 @@ def play_game(board, mode):
   else:
     player = 1
   for _ in range(9):  # max moves
+
+    print_board(board)
+
     player = 1 if player == mode else mode
     current_player = play_turn(board, current_player, player)
-    print_board(board)
-    if check_winner(board):
-      print_victory(player)
-      return
+
+    winner = check_winner(board)
+    if winner is not None:
+        print(f"Player {winner} wins!")
+        return
+
+  print_board()
   print_tie()
+
 
